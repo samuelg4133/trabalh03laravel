@@ -24,17 +24,18 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "bail|required|unique:cars,name,$this->brand->id",
+            "name" => "bail|required|unique:cars,name,$this->car->id",
             "description" => "bail|required|min:4",
             "year" => "bail|required|max:4|min:4|",
             "mileage" => "bail|required",
             "motor" => "bail|required|string",
-            "brand_id" => "required"
+            "brand_id" => "required",
+            "sale_value" => "required"
         ];
     }
 
     public function attributes()
     {
-        return ["brand_id" => "marca", "mileage" => "quilometragem"];
+        return ["brand_id" => "marca", "mileage" => "quilometragem", "sale_value" => "valor de venda"];
     }
 }

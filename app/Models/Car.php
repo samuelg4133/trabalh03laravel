@@ -12,6 +12,7 @@ class Car extends Model
     protected $fillable = [
         "name",
         "description",
+        "sale_value",
         "year",
         "mileage",
         "motor",

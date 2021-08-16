@@ -7,6 +7,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Ano do Modelo</th>
                 <th scope="col">Km rodados</th>
@@ -20,9 +21,10 @@
                     <th scope="row">{{ $car->id }}</th>
                     <td>{{ $car->brand->name }}</td>
                     <td>{{ $car->name }}</td>
+                    <td>R$ {{ str_replace('.', ',', $car->sale_value) }}</td>
                     <td>{{ mb_strimwidth($car->description, 0, 30, '...') }}</td>
                     <td>{{ $car->year }}</td>
-                    <td>{{ $car->mileage }}</td>
+                    <td>{{ str_replace('.', ',', $car->mileage) }}</td>
                     <td>{{ $car->motor }}</td>
                     <td style="display: flex; align-items: center;">
                         <a href="{{ route('cars.show', $car->id) }}" style="margin-right: 8px;">

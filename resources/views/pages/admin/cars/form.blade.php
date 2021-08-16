@@ -36,9 +36,17 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="sale_value" class="form-label">Valor: </label>
+                <input type="number" class="form-control" id="sale_value" name="sale_value" placeholder="R$"
+                    value="{{ old('sale_value', $car->sale_value ?? '') }}">
+                @error('sale_value')
+                    <span><small class="text-danger">{{ $message }}</small></span>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="description" class="form-label">Descrição: </label>
                 <textarea name="description" id="description" cols="10" class="form-control" placeholder="Descrição..."
-                    rows="2" value="{{ old('description', $car->description ?? '') }}"></textarea>
+                    rows="2">{{ old('description', $car->description ?? '') }}</textarea>
                 @error('description')
                     <span><small class="text-danger">{{ $message }}</small></span>
                 @enderror
@@ -54,9 +62,7 @@
             <div class="mb-3">
                 <label for="year" class="form-label">Ano de Fabricação: </label>
                 <input type="number" class="form-control" id="year" name="year"
-                    value="{{ old('year', $car->year ?? '') }}"
-                    placeholder="Ano de Fabricação"
-                    >
+                    value="{{ old('year', $car->year ?? '') }}" placeholder="Ano de Fabricação">
                 @error('year')
                     <span><small class="text-danger">{{ $message }}</small></span>
                 @enderror

@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->year("year");
             $table->decimal("mileage");
             $table->string('motor');
+            $table->decimal('sale_value');
             $table->timestamps();
         });
     }

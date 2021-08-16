@@ -51,7 +51,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('pages.admin.cars.show')->with(compact("car"));
     }
 
     /**
@@ -62,7 +62,7 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        return view('pages.admin.cars.form', ['brands' => Brand::orderBy('name')->get(), 'car' => $car]);
     }
 
     /**
@@ -72,9 +72,11 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Car $car)
+    public function update(CarRequest $request, $id)
     {
-        //
+        $car = Car::find($id)->update($request->all());
+
+        return redirect()->route('cars.index');
     }
 
     /**

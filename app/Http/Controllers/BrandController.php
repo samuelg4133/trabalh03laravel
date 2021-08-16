@@ -39,7 +39,7 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
         Brand::create($request->all());
 
